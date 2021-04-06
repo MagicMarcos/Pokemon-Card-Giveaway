@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pokemon Card Giveaway</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Teko:wght@300&family=Train+One&display=swap">
@@ -28,25 +28,24 @@
 <body>
     <h1><img class="pokeLogo" src="img/pokemonLogo.png" alt="Pokemon Logo"> <span>CARD GIVEAWAY!</span> </h1>
 
-    <section id="main_container" class="clear">
+    <section id="main_container" >
      <table class="cards">
         <tr>
-            <th>Card Names</th>
-            <th>Card Value</th>
-            <th>Card Count</th>
+            <th class="cardTable">Card Names</th>
+            <th class="cardTable">Card Value</th>
+            <th class="cardTable">Card Count</th>
             <th>Manage Cards</th>
         </tr>
      <% for(let i=0; i < info.length; i++) {%>
         <tr class="card">
-            <td class="cardName"><%= info[i].cardName %></td>
-            <td><%= info[i].cardValue %></td>
-            <td><%= info[i].count %></td>
+            
+            <td class="cardName cardTable"><%= info[i].cardName %></td>
+            <td class="cardTable"><%= info[i].cardValue %></td>
+            <td class="cardTable"><%= info[i].count %></td>
                 
             <td class="fa fa-arrow-up"></td>
             <td class="fa fa-arrow-down"></td>
             <td class='fa fa-trash'></td>
-            
-           
         </tr>
       <% } %>
      </table>

@@ -37,7 +37,8 @@ async function deleteCard(){
     }
 }
 
-//add one to card count
+
+//add one to card count up arrow
 async function addCard(){
     const sName = this.parentNode.childNodes[1].innerText
     const bName = this.parentNode.childNodes[3].innerText
@@ -61,7 +62,7 @@ async function addCard(){
     }
 }
 
-//remove one card from the list
+//remove one card from the list down arrow
 async function removeCard(){
     const sCard = this.parentNode.childNodes[1].innerText
     const cValue = this.parentNode.childNodes[3].innerText
@@ -89,10 +90,10 @@ async function removeCard(){
 }
 }
 
-//Randomize value based on length of list and return after audio
+//Randomize value based on length of list and return after audio plays
 const cardCount = document.querySelectorAll('.cardName')
 const audio = document.querySelector('audio')
-
+const cardCountArr = Array.from(cardCount)
 document.querySelector('button').addEventListener('click', getPokemon)
 
 function randomizer(){
@@ -100,21 +101,18 @@ function randomizer(){
         setTimeout(() => {
             resolve("result")
 
-            //RANDOMIZING 
-            const cardCountArr = Array.from(cardCount)
+            /////RANDOMIZING MATH/////
+            
             const cardNum = Math.ceil(Math.random() * cardCountArr.length)
-
             const cardResult = cardCountArr[cardNum - 1].innerText
 
-            document.querySelector('.resultingNum').innerHTML = cardResult
-            
+            document.querySelector('.resultingNum').innerHTML = cardResult.slice(2)
             document.querySelector('.resultingNum').style.display = "inherit"
 
             console.log(cardNum)
         }, 5500)})
-    
-    
 }
+
 async function getPokemon(){
     audio.currentTime = 0;
     audio.play();
@@ -124,5 +122,4 @@ async function getPokemon(){
     return result
     
 }
-
 

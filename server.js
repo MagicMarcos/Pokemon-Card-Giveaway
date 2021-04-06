@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient
 const PORT = 5150
 require('dotenv').config()
 
-
+//Database Connection
 let db,
     dbConnectionStr = process.env.DB_STRING,
     dbName = 'pokeCards'
@@ -20,6 +20,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+//Get 
 app.get('/',(request, response)=>{
     db.collection('cards').find().sort({cardCount: -1}).toArray()
     .then(data => {
@@ -28,9 +29,9 @@ app.get('/',(request, response)=>{
     .catch(error => console.error(error))
 })
 
-
+//Post -adds a new card
 app.post('/addPokeCard', (request, response) => {
-    db.collection('cards').insertOne({cardName: request.body.cardName, cardValue: `$` + request.body.cardValue, count: 0})
+    db.collection('cards').insertOne({cardName: `. `+ request.body.cardName, cardValue: `$` + request.body.cardValue, count: 0})
     .then(result => {
         console.log('Pokemon Card Added')
         response.redirect('/')
@@ -38,6 +39,7 @@ app.post('/addPokeCard', (request, response) => {
     .catch(error => console.error(error))
 })
 
+//Put -adds one card
 app.put('/addOneCard', (request, response) => {
     db.collection('cards').updateOne({ cardName: request.body.cardNameS, cardValue: request.body.cardValueS,count: request.body.countS},{
         $set: {
@@ -55,6 +57,7 @@ app.put('/addOneCard', (request, response) => {
 
 })
 
+//PUT -subtracts one card
 app.put('/removeOneCard', (request, response) => {
     db.collection('cards').updateOne({ cardName: request.body.cardNameS, cardValue: request.body.cardValueS, count: request.body.countS},{
         $set: {
@@ -71,6 +74,7 @@ app.put('/removeOneCard', (request, response) => {
     .catch(error => console.error)
 })
 
+//DELETE -deletes a card from list
 app.delete('/deleteCard', (request, response) => {
     db.collection('cards').deleteOne({ cardName: request.body.cardNameS})
     .then(result => {
