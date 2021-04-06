@@ -1,0 +1,86 @@
+const express = require('express')
+const app = express()
+const MongoClient = require('mongodb').MongoClient
+const PORT = 5150
+require('dotenv').config()
+
+
+let db,
+    dbConnectionStr = process.env.DB_STRING,
+    dbName = 'pokeCards'
+
+MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+    .then(client => {
+        console.log(`Connected to ${dbName} Database`)
+        db = client.db(dbName)
+    })
+    
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
+app.get('/',(request, response)=>{
+    db.collection('cards').find().sort({cardCount: -1}).toArray()
+    .then(data => {
+        response.render('index.ejs', { info: data })
+    })
+    .catch(error => console.error(error))
+})
+
+
+app.post('/addPokeCard', (request, response) => {
+    db.collection('cards').insertOne({cardName: request.body.cardName, cardValue: `$` + request.body.cardValue, count: 0})
+    .then(result => {
+        console.log('Pokemon Card Added')
+        response.redirect('/')
+    })
+    .catch(error => console.error(error))
+})
+
+app.put('/addOneCard', (request, response) => {
+    db.collection('cards').updateOne({ cardName: request.body.cardNameS, cardValue: request.body.cardValueS,count: request.body.countS},{
+        $set: {
+            count:request.body.countS + 1
+          }
+    },{
+        sort: {_id: -1},
+        upsert: true
+    })
+    .then(result => {
+        console.log('Added One Card')
+        response.json('Card Added')
+    })
+    .catch(error => console.error(error))
+
+})
+
+app.put('/removeOneCard', (request, response) => {
+    db.collection('cards').updateOne({ cardName: request.body.cardNameS, cardValue: request.body.cardValueS, count: request.body.countS},{
+        $set: {
+            count:request.body.countS - 1
+        }
+    },{
+        sort: {_id: -1},
+        upsert: true
+    })
+    .then(result => {
+        console.log('Removed One Card')
+        response.json('Card Removed')
+    })
+    .catch(error => console.error)
+})
+
+app.delete('/deleteCard', (request, response) => {
+    db.collection('cards').deleteOne({ cardName: request.body.cardNameS})
+    .then(result => {
+        console.log('Card Deleted')
+        response.json('Card Deleted')
+    })
+    .catch(error => console.error(error))
+
+})
+
+app.listen(process.env.PORT || PORT, ()=>{
+    console.log(`Server running on port ${PORT}`)
+})

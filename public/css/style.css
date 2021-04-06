@@ -1,0 +1,207 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+/* body{
+  float: left;
+  width: 100%;
+ 
+} */
+
+img{
+  display: block;
+  margin: 0 auto;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+/* background */
+body{
+  background-image: url("/img/detective-pikachu-last.png");
+  background-position: top, bottom;
+  background-repeat: no-repeat;
+  background-color: slategray;
+}
+
+/*  header */
+h1{
+    color:dodgerblue;
+    float: left;
+    width: 100%;
+    text-align: center;
+    /* border: 2px solid black; */
+    margin-top: 1%;
+    font-weight: 900;
+    font-size: 3rem;
+    font-family: 'Train One', sans-serif;
+}
+
+h1>span{
+  margin-left: 2%;
+}
+
+.pokeLogo{
+  
+  width: 25%;
+}
+
+#main_container{
+  /* border: 3px solid red; */
+  float: left;
+  width: 80%; 
+  margin-left: 10% ;
+  height: fit-content;
+  
+}
+
+
+/* cards table */
+.cards{
+    border-radius: 0.5rem;
+    width: 60%;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: sans-serif;
+    color: azure;
+    float: left;
+    line-height: 3.5rem;
+    background-color: rgba(54, 64, 187, .5);
+    text-align: center;
+  
+}
+th{
+  border-bottom: 2px solid white;
+}
+.fa {
+  margin-right: 5%;
+}
+
+/* contains right two boxes */
+.right_container{
+  float: right;
+  height: fit-content;
+  width: 35%;
+}
+
+/* add card section */
+.cardAdd{
+  float: right;
+  font-size: 2.5rem;
+  width: 100%;
+  background-color: rgba(255, 0, 255, 0.384);
+  border-radius: .5rem;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-bottom: 2%;
+}
+
+.addACard{
+  color: yellow;
+  text-shadow: 2px 2px 3px 4px black;
+  text-align: center;
+  font-family: 'Londrina Solid', sans-serif;
+  font-size: 5rem;
+  margin-bottom: 2%;
+}
+
+.inputForm,.submitForm{
+  float: left;
+  height: 3rem;
+  font-size: 1.7rem;
+  
+  
+  border: none;
+  border-radius: 2rem;
+  text-align: center;
+ 
+}
+
+.inputForm{
+  background-color: deepskyblue;
+  border: 2px solid white;
+  margin: 0.5% 25% .5% 25%;
+  font-family: 'Teko', sans-serif;
+  font-size: 2.5rem;
+  width: 50%;
+  padding-top: 4%;
+  padding-bottom: 3%;
+}
+.submitForm{
+  background-color: yellow;
+  border: 2px solid deepskyblue;
+  margin: 1% 35% .5% 35%;
+  font-weight: 800;
+  font-family: 'Londrina Solid', sans-serif;
+  font-size: 2.5rem;
+  width: 30%;
+  padding-bottom: 6%;
+}
+
+/* Randomizer */
+.randomizer{
+  float: right;
+  width: 100%;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 3%;
+  background-color: rgba(255, 255, 0, 0.37);
+  border-radius: 0.5rem;
+  margin-top: 4%;
+}
+button{
+  float: left;
+  width: 80%;
+  height: 6rem;
+  margin: 2% 10% 1% 10%;
+  background-color: deepskyblue;
+  color: white;
+  border: 2px solid white;
+  border-radius: 2rem;
+  font-family: 'Londrina Solid', sans-serif;
+  font-size: 3rem;
+}
+
+.resultingNum{
+  font-size: 3rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* float: left; */
+  color: rgb(255, 0, 191);
+  background-color: yellow;
+  border: 4px solid deepskyblue;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: fit-content;
+  margin-top: 2%;
+  padding: 2%;
+  display: none;  
+  border-radius: 2rem;
+}

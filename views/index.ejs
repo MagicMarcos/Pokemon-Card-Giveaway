@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Teko:wght@300&family=Train+One&display=swap">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/normalize.css"> 
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+  
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Card Raffle</title>
+</head>
+
+<body>
+    <h1><img class="pokeLogo" src="img/pokemonLogo.png" alt="Pokemon Logo"> <span>CARD GIVEAWAY!</span> </h1>
+
+    <section id="main_container" class="clear">
+     <table class="cards">
+        <tr>
+            <th>Card Names</th>
+            <th>Card Value</th>
+            <th>Card Count</th>
+            <th>Manage Cards</th>
+        </tr>
+     <% for(let i=0; i < info.length; i++) {%>
+        <tr class="card">
+            <td class="cardName"><%= info[i].cardName %></td>
+            <td><%= info[i].cardValue %></td>
+            <td><%= info[i].count %></td>
+                
+            <td class="fa fa-arrow-up"></td>
+            <td class="fa fa-arrow-down"></td>
+            <td class='fa fa-trash'></td>
+            
+           
+        </tr>
+      <% } %>
+     </table>
+     <!-- think of adding another column to the table to enumerate the card list, visually representing each cards location in the table -->
+    <section class="right_container">
+        <section class="cardAdd">
+            <h2 class="addACard">Add A Card:</h2>
+
+            <form class="form" class="clear" action="/addPokeCard" method="POST">
+                <input type="text" placeholder="Card Name" name="cardName" class="inputForm" >
+
+                <input type="number" step="any" min="0" placeholder="Estimated Price" name="cardValue" class="inputForm" >
+
+                <input type="submit" class="submitForm">
+            </form>
+        </section>
+
+        <section class="randomizer">
+            <button>Who's that Pokemon?!</button>
+            <audio src="\audio\whos-that-pokemon.mp3"></audio>
+            <h2 class="resultingNum clear"></h2>
+        </section>
+            <script src='js/main.js'></script>
+        </section>
+    </section>
+</body>
+</html>
