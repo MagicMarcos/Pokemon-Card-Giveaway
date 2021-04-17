@@ -1,20 +1,22 @@
-const deleteText = document.querySelectorAll('.fa-trash')
-const upText = document.querySelectorAll('.fa-arrow-up')
-const downText = document.querySelectorAll('.fa-arrow-down')
+const deleteButton = document.querySelectorAll('.fa-trash')
+const upButton = document.querySelectorAll('.fa-arrow-up')
+const downButton = document.querySelectorAll('.fa-arrow-down')
  
 
-Array.from(deleteText).forEach((element)=>{
+Array.from(deleteButton).forEach((element)=>{
     element.addEventListener('click', deleteCard)
 })
 
-Array.from(upText).forEach((element)=>{
+Array.from(upButton).forEach((element)=>{
     element.addEventListener('click', addCard)
 })
 
-Array.from(downText).forEach((element) =>{
+Array.from(downButton).forEach((element) =>{
     element.addEventListener('click', removeCard)
 })
 
+
+///////// FIGURE OUT THE PARENT NODES STUFF WITH EJS!
 //delete a card from list
 async function deleteCard(){
     const sName = this.parentNode.childNodes[1].innerText
