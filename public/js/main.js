@@ -3,31 +3,29 @@ const upButton = document.querySelectorAll('.fa-arrow-up')
 const downButton = document.querySelectorAll('.fa-arrow-down')
  
 
-Array.from(deleteButton).forEach((element)=>{
-    element.addEventListener('click', deleteCard)
+Array.from(deleteButton).forEach((el)=>{
+    el.addEventListener('click', deleteCard)
 })
 
-Array.from(upButton).forEach((element)=>{
-    element.addEventListener('click', addCard)
+Array.from(upButton).forEach((el)=>{
+    el.addEventListener('click', addCard)
 })
 
-Array.from(downButton).forEach((element) =>{
-    element.addEventListener('click', removeCard)
+Array.from(downButton).forEach((el) =>{
+    el.addEventListener('click', removeCard)
 })
 
 
 ///////// FIGURE OUT THE PARENT NODES STUFF WITH EJS!
 //delete a card from list
 async function deleteCard(){
-    const sName = this.parentNode.childNodes[1].innerText
-    const bName = this.parentNode.childNodes[3].innerText
+    const cardId = this.parentNode.dataset.id
     try{
-        const response = await fetch('deleteCard', {
+        const response = await fetch('giveaway/deleteCard', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'cardNameS': sName,
-              'cardValueS': bName
+              'cardIdFromJsFile': cardId
             })
           })
         const data = await response.json()
@@ -42,17 +40,13 @@ async function deleteCard(){
 
 //add one to card count up arrow
 async function addCard(){
-    const sName = this.parentNode.childNodes[1].innerText
-    const bName = this.parentNode.childNodes[3].innerText
-    const tUp = Number(this.parentNode.childNodes[5].innerText)
+    const cardId = this.parentNode.dataset.id
     try{
         const response = await fetch('addOneCard', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'cardNameS': sName,
-              'cardValueS': bName,
-              'countS': tUp
+            'cardIdFromJsFile': cardId
             })
           })
         const data = await response.json()
@@ -65,7 +59,7 @@ async function addCard(){
 }
 
 //remove one card from the list down arrow
-async function removeCard(){
+async function removeOneCard(){
     const sCard = this.parentNode.childNodes[1].innerText
     const cValue = this.parentNode.childNodes[3].innerText
     const tDown = Number(this.parentNode.childNodes[5].innerText)

@@ -36,12 +36,12 @@
             <th class="cardTable">Card Count</th>
             <th>Manage Cards</th>
         </tr>
-     <% for(let i=0; i < info.length; i++) {%>
-        <tr class="card">
+     <% cards.forEach( el => {%>
+        <tr class="card" data-id='<%=el._id%>'>
             
-            <td class="cardName cardTable"><%= info[i].cardName %></td>
-            <td class="cardTable"><%= info[i].cardValue %></td>
-            <td class="cardTable"><%= info[i].count %></td>
+            <td class="cardName cardTable"><%= el.cardName %></td>
+            <td class="cardTable"><%= el.cardValue %></td>
+            <td class="cardTable"><%= el.count %></td>
                 
             <td class="fa fa-arrow-up"></td>
             <td class="fa fa-arrow-down"></td>
@@ -49,12 +49,12 @@
         </tr>
       <% } %>
      </table>
-     <!-- think of adding another column to the table to enumerate the card list, visually representing each cards location in the table -->
+     
     <section class="right_container">
         <section class="cardAdd">
             <h2 class="addACard">Add A Card:</h2>
 
-            <form class="form" class="clear" action="/addPokeCard" method="POST">
+            <form class="form" class="clear" action="giveaway/addPokeCard" method="POST">
                 <input type="text" placeholder="Card Name" name="cardName" class="inputForm" >
 
                 <input type="number" step="any" min="0" placeholder="Estimated Price" name="cardValue" class="inputForm" >
