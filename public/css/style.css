@@ -54,20 +54,22 @@ body{
 
 /*  header */
 h1{
-    color:dodgerblue;
+    color:rgb(248, 39, 39);
     float: left;
     width: 100%;
     text-align: center;
     /* border: 2px solid black; */
     margin-top: 1%;
     margin-bottom: 2%;
-    font-weight: 900;
-    font-size: 3rem;
-    font-family: 'Train One', sans-serif;
+    font-weight: 400;
+    font-size: 4rem;
+    font-family: 'Permanent Marker', sans-serif;
+    
 }
 
 h1>span{
   margin-left: 2%;
+  
 }
 
 .pokeLogo{
@@ -94,17 +96,20 @@ h1>span{
     color: azure;
     float: left;
     line-height: 3.5rem;
-    background-color: rgba(54, 64, 187, .5);
+    background-color: rgba(54, 64, 187, .8);
     text-align: center;
-  
+    
 }
 
+.cards:hover{
+  box-shadow: 5px 4px rgb(49, 48, 48, .5), 0 0 60px 5px rgb(54, 64, 187);
+}
 .card{
   height: 36px;
 }
 
 .cardTable{
-  border-right: 2px solid azure;
+  border-right: 4px solid yellow;
 }
 
 table {
@@ -127,10 +132,36 @@ table {
 }
 
 th{
+  border-bottom: 4px solid yellow;
+}
+
+tr{
   border-bottom: 2px solid white;
 }
+
 .fa {
-  margin-right: 5%;
+  margin-right: 8%;
+}
+
+.fa:hover{
+  box-shadow: 0 0 60px 5px rgb(0, 0, 0);
+}
+
+.fa-trash {
+  color: red;
+}
+
+.fa-trash:active {
+  color: rgb(102, 11, 11);
+}
+
+
+.fa-arrow-up:active {
+  color: rgb(20, 216, 20);
+}
+
+.fa-arrow-down:active{
+  color: darkgray;
 }
 
 /* contains right two boxes */
@@ -145,11 +176,16 @@ th{
   float: right;
   font-size: 2.5rem;
   width: 100%;
-  background-color: rgba(255, 0, 255, 0.384);
+  background-color: rgba(255, 0, 255, 0.4);
   border-radius: .5rem;
   padding-top: 1%;
   padding-bottom: 1%;
   margin-bottom: 2%;
+  box-shadow: 0 0 60px 5px rgb(15, 15, 15);
+}
+
+.cardAdd:hover{
+  box-shadow: 5px 4px rgb(49, 48, 48, .2), 0 0 60px 5px rgb(255, 0, 255);
 }
 
 .addACard{
@@ -174,7 +210,7 @@ th{
 }
 
 .inputForm{
-  background-color: deepskyblue;
+  background-color: rgb(0, 191, 255);
   border: 2px solid white;
   margin: 0.5% 25% .5% 25%;
   font-family: 'Teko', sans-serif;
@@ -184,7 +220,7 @@ th{
   padding-bottom: 3%;
 }
 .submitForm{
-  background-color: yellow;
+  background-color: rgb(255, 255, 0);
   border: 2px solid deepskyblue;
   margin: 1% 35% .5% 35%;
   font-weight: 800;
@@ -192,6 +228,17 @@ th{
   font-size: 2.5rem;
   width: 30%;
   padding-bottom: 6%;
+}
+.inputForm:hover{
+  box-shadow: 0 0 6px 5px rgb(255, 255, 0, .7);
+}
+.submitForm:hover{
+  box-shadow: 0 0 6px 5px rgb(0, 191, 255);
+}
+
+.submitForm:active{
+  background-color: rgb(0, 191, 255);
+  color: azure;
 }
 
 /* Randomizer */
@@ -204,6 +251,11 @@ th{
   background-color: rgba(255, 255, 0, 0.37);
   border-radius: 0.5rem;
   margin-top: 4%;
+  box-shadow: 0 0 60px 5px rgb(15, 15, 15);
+}
+
+.randomizer:hover{
+  box-shadow: 5px 4px rgb(49, 48, 48, .2), 0 0 60px 5px rgb(255, 255, 0);
 }
 
 button{
@@ -217,6 +269,15 @@ button{
   border-radius: 2rem;
   font-family: 'Londrina Solid', sans-serif;
   font-size: 3rem;
+}
+
+button:hover{
+  box-shadow: 0 0 6px 5px rgb(255, 0, 255, .8);
+}
+
+button:active{
+  background-color: yellow;
+  color: black;
 }
 
 .resultingNum{
