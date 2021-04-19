@@ -1,37 +1,35 @@
-const deleteButton = document.querySelectorAll('.fa-trash')
+const deleteButton = document.querySelectorAll('.del')
 const upButton = document.querySelectorAll('.fa-arrow-up')
 const downButton = document.querySelectorAll('.fa-arrow-down')
  
 
-Array.from(deleteButton).forEach((element)=>{
-    element.addEventListener('click', deleteCard)
+Array.from(deleteButton).forEach((el)=>{
+    el.addEventListener('click', deleteCard)
 })
 
-Array.from(upButton).forEach((element)=>{
-    element.addEventListener('click', addCard)
+Array.from(upButton).forEach((el)=>{
+    el.addEventListener('click', addOneCard)
 })
 
-Array.from(downButton).forEach((element) =>{
-    element.addEventListener('click', removeCard)
+Array.from(downButton).forEach((el) =>{
+    el.addEventListener('click', removeOneCard)
 })
 
 
-///////// FIGURE OUT THE PARENT NODES STUFF WITH EJS!
+/////////why do we get a console log of card deleted but not deleted card (res.json)
 //delete a card from list
 async function deleteCard(){
-    const sName = this.parentNode.childNodes[1].innerText
-    const bName = this.parentNode.childNodes[3].innerText
+    const cardId = this.parentNode.dataset.id
     try{
-        const response = await fetch('deleteCard', {
+        const res = await fetch('giveaway/deleteCard', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'cardNameS': sName,
-              'cardValueS': bName
+              'cardIdFromJsFile': cardId
             })
           })
-        const data = await response.json()
-        console.log(data)
+        const data = await res.json()
+        console.log(data) //this is not being logged to the console.. but when we call alert we see it.. why?
         location.reload()
 
     }catch(err){
@@ -41,18 +39,16 @@ async function deleteCard(){
 
 
 //add one to card count up arrow
-async function addCard(){
-    const sName = this.parentNode.childNodes[1].innerText
-    const bName = this.parentNode.childNodes[3].innerText
+async function addOneCard(){
+    const cardId = this.parentNode.dataset.id
     const tUp = Number(this.parentNode.childNodes[5].innerText)
     try{
-        const response = await fetch('addOneCard', {
+        const response = await fetch('giveaway/addOneCard', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'cardNameS': sName,
-              'cardValueS': bName,
-              'countS': tUp
+            'cardIdFromJsFile': cardId,
+            'countS': tUp
             })
           })
         const data = await response.json()
@@ -65,22 +61,21 @@ async function addCard(){
 }
 
 //remove one card from the list down arrow
-async function removeCard(){
-    const sCard = this.parentNode.childNodes[1].innerText
-    const cValue = this.parentNode.childNodes[3].innerText
+async function removeOneCard(){
+    const cardId = this.parentNode.dataset.id
     const tDown = Number(this.parentNode.childNodes[5].innerText)
 
     if(tDown <= 0){
         return false
     } 
-    else{ try{
-        const response = await fetch('removeOneCard', {
+    else{
+         try{
+        const response = await fetch('giveaway/removeOneCard', {
             method: 'put', 
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                'cardNameS': sCard,
-                'cardValueS': cValue, 
-                'countS': tDown 
+                'cardIdFromJsFile': cardId,
+                'countS': tDown
             })
         })
     const data = await response.json()
@@ -108,7 +103,7 @@ function randomizer(){
             const cardNum = Math.ceil(Math.random() * cardCountArr.length)
             const cardResult = cardCountArr[cardNum - 1].innerText
 
-            document.querySelector('.resultingNum').innerHTML = cardResult.slice(2)
+            document.querySelector('.resultingNum').innerHTML = cardNum + cardResult
             document.querySelector('.resultingNum').style.display = "inherit"
 
             console.log(cardNum)

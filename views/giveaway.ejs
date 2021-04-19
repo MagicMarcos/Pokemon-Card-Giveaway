@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Card Giveaway</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Teko:wght@300&family=Train+One&display=swap">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/normalize.css"> 
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+  
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Card Raffle</title>
+</head>
+
+<body>
+    <h1><img class="pokeLogo" src="img/pokemonLogo.png" alt="Pokemon Logo"> <span>CARD GIVEAWAY!</span> </h1>
+
+    <section id="main_container" >
+     <table class="cards">
+        <tr>
+            <th class="cardTable">Card Names</th>
+            <th class="cardTable">Card Value</th>
+            <th class="cardTable">Card Count</th>
+            <th>Manage Cards</th>
+        </tr>
+     <% cards.forEach( el => {%>
+        <tr class="card" data-id='<%=el._id%>'>
+            
+            <td class="cardName cardTable"><%= el.cardName %></td>
+            <td class="cardTable"><%= el.cardValue %></td>
+            <td class="cardTable"><%= el.count %></td>
+                
+            <td class="fa fa-arrow-up"></td>
+            <td class="fa fa-arrow-down"></td>
+            <td class='del fa fa-trash'></td>
+        </tr>
+      <% }) %>
+     </table>
+     
+    <section class="right_container">
+        <section class="cardAdd">
+            <h2 class="addACard">Add A Card</h2>
+
+            <form class="form" class="clear" action="giveaway/addPokeCard" method="POST">
+                <input type="text" placeholder="Card Name" name="cardName" class="inputForm" >
+
+                <input type="number" step="any" min="0" placeholder="Estimated Price" name="cardValue" class="inputForm" >
+
+                <input type="submit" class="submitForm">
+            </form>
+        </section>
+
+        <section class="randomizer">
+            <button>Who's that Pokemon?!</button>
+            <audio src="\audio\whos-that-pokemon.mp3"></audio>
+            <h2 class="resultingNum clear"></h2>
+        </section>
+            <script src='js/main.js'></script>
+        </section>
+    </section>
+</body>
+</html>
