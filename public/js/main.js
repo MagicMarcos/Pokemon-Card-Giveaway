@@ -1,4 +1,4 @@
-const deleteButton = document.querySelectorAll('.fa-trash')
+const deleteButton = document.querySelectorAll('.del')
 const upButton = document.querySelectorAll('.fa-arrow-up')
 const downButton = document.querySelectorAll('.fa-arrow-down')
  
@@ -8,28 +8,28 @@ Array.from(deleteButton).forEach((el)=>{
 })
 
 Array.from(upButton).forEach((el)=>{
-    el.addEventListener('click', addCard)
+    el.addEventListener('click', addOneCard)
 })
 
 Array.from(downButton).forEach((el) =>{
-    el.addEventListener('click', removeCard)
+    el.addEventListener('click', removeOneCard)
 })
 
 
-///////// FIGURE OUT THE PARENT NODES STUFF WITH EJS!
+/////////why do we get a console log of card deleted but not deleted card (res.json)
 //delete a card from list
 async function deleteCard(){
     const cardId = this.parentNode.dataset.id
     try{
-        const response = await fetch('giveaway/deleteCard', {
+        const res = await fetch('giveaway/deleteCard', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
               'cardIdFromJsFile': cardId
             })
           })
-        const data = await response.json()
-        console.log(data)
+        const data = await res.json()
+        console.log(data) //this is not being logged to the console.. but when we call alert we see it.. why?
         location.reload()
 
     }catch(err){
@@ -39,14 +39,16 @@ async function deleteCard(){
 
 
 //add one to card count up arrow
-async function addCard(){
+async function addOneCard(){
     const cardId = this.parentNode.dataset.id
+    const tUp = Number(this.parentNode.childNodes[5].innerText)
     try{
-        const response = await fetch('addOneCard', {
+        const response = await fetch('giveaway/addOneCard', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-            'cardIdFromJsFile': cardId
+            'cardIdFromJsFile': cardId,
+            'countS': tUp
             })
           })
         const data = await response.json()
@@ -60,21 +62,20 @@ async function addCard(){
 
 //remove one card from the list down arrow
 async function removeOneCard(){
-    const sCard = this.parentNode.childNodes[1].innerText
-    const cValue = this.parentNode.childNodes[3].innerText
+    const cardId = this.parentNode.dataset.id
     const tDown = Number(this.parentNode.childNodes[5].innerText)
 
     if(tDown <= 0){
         return false
     } 
-    else{ try{
-        const response = await fetch('removeOneCard', {
+    else{
+         try{
+        const response = await fetch('giveaway/removeOneCard', {
             method: 'put', 
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                'cardNameS': sCard,
-                'cardValueS': cValue, 
-                'countS': tDown 
+                'cardIdFromJsFile': cardId,
+                'countS': tDown
             })
         })
     const data = await response.json()
