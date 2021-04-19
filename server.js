@@ -19,10 +19,3 @@ app.use('/giveaway', giveawayRoutes)
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Server running`)
 })
-
-
-
-
-
-
-
