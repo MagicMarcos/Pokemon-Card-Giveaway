@@ -43,7 +43,7 @@ module.exports = {
     //PUT -subtracts one card
     removeOneCard: async (req, res) => {
         try {
-            await Giveaway.findOneAndUpdate({ _id: req.body.cardIdFromJsFile }, {
+            await Giveaway.findOneAndUpdate({ _id: req.body.cardIdFromJsFile  }, {
                 count: req.body.countS - 1
             })
             console.log('Card Removed')
@@ -56,7 +56,7 @@ module.exports = {
     //DELETE -deletes a card from list
     deleteCard: async (req, res) => {
         try {
-            await Giveaway.findOneAndDelete({ _id:req.body.cardIdFromJSFile })
+            await Giveaway.findOneAndDelete({ _id: req.body.cardIdFromJsFile })
             console.log('Card Deleted')
             res.json('Deleted Card')
         } catch (err) {

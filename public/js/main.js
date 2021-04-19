@@ -103,7 +103,7 @@ function randomizer(){
             const cardNum = Math.ceil(Math.random() * cardCountArr.length)
             const cardResult = cardCountArr[cardNum - 1].innerText
 
-            document.querySelector('.resultingNum').innerHTML = cardResult.slice(2)
+            document.querySelector('.resultingNum').innerHTML = cardNum + cardResult
             document.querySelector('.resultingNum').style.display = "inherit"
 
             console.log(cardNum)
