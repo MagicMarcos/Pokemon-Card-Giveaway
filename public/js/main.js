@@ -16,7 +16,6 @@ Array.from(downButton).forEach((el) =>{
 })
 
 
-/////////why do we get a console log of card deleted but not deleted card (res.json)
 //delete a card from list
 async function deleteCard(){
     const cardId = this.parentNode.dataset.id
@@ -29,7 +28,7 @@ async function deleteCard(){
             })
           })
         const data = await res.json()
-        console.log(data) //this is not being logged to the console.. but when we call alert we see it.. why?
+        console.log(data) 
         location.reload()
 
     }catch(err){

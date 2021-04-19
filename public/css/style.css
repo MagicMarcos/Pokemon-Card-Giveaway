@@ -222,7 +222,6 @@ button{
 .resultingNum{
   font-size: 3rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  /* float: left; */
   color: rgb(255, 0, 191);
   background-color: yellow;
   border: 4px solid deepskyblue;
