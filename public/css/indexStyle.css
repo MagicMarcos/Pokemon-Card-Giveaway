@@ -48,14 +48,15 @@ body {
   background-color: turquoise;
 }
 
+/* Page head */
 h1{
   float: left;
   width: 100%;
   height: fit-content;
   text-align: center;
-  font-size: 10rem;
+  font-size: 10em;
   font-family: 'Roboto', sans-serif ;
-  margin-top: 1rem;
+  margin-top: 2%;
   margin-bottom: 2%;
   color: rgb(219, 253, 255);
   text-shadow: 5px 1px rgb(17, 0, 255), 0 0 1em blue;
@@ -66,12 +67,19 @@ h1{
   margin: 0 43% 0 43%;
 }
 
-div{
+.wrapper {
   float: left;
-  max-width: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+}
+
+/* bottom half container */
+.center{
+  float: left;
+  width: 100%;
   height: fit-content;
-  padding-bottom: 1%;
-  margin-left: 2%;
+  
 }
 
 section{
@@ -83,72 +91,58 @@ section{
   padding: 2%;
 }
 
-section a{
-  float: left;
-  text-decoration: none;
-  color: blue;
-  border-radius: 20px;
-  background-color: rgb(0, 255, 136);
-  width: 80%;
-  box-shadow: 0 0 8px bisque;
-  padding: 2% 6% 2% 6%;
-}
-
 .giveaway{
-  margin: 0 1% 0% 2%;
+  margin: 0 1% 0% 14%;
+  width: 35%;
 }
 
 .giveawayImg {
   float: left;
-  width: 80%;
-  margin: 0 0% 3% 15%;
+  width: 100%;
   border-radius: 20px;
+  box-shadow: 0 0 50px black;
 }
 
-.giveawayImg {
-  box-shadow: 0 0 30px black;
-}
-
-.work {
+.workImg {
   float: left;
-  width: 80%;
-  max-height: 300px;
+  width: 100%;
   margin: 0 15% 3% 0%;
   border-radius: 20px;
-}
-
-.work {
   box-shadow: 0 0 50px black;
 }
 
 .yolo{
   margin: 0 2% 0 1%;
+  width: 35%;
 }
 
-.giveawayBtn{
-  margin-left: 15%;
+.giveawayImg:hover{
+  box-shadow:inset 0 0 90px rgb(226, 10, 10), 0 0 40px bisque;
+  width: 102%;
 }
 
-.giveawayBtn:hover{
-  box-shadow:inset 0 0 4px rgb(27, 27, 27), 0 0 19px bisque;
-  
+.giveawayImg:active{
+  box-shadow: 0 0 30px rgb(7, 233, 82);
+  filter: brightness(90%);
+}
+.workImg:hover{
+  box-shadow:inset 0 0 4px rgb(27, 27, 27), 0 0 40px bisque;
+    width: 102%;
 }
 
-.giveawayBtn:active{
-  box-shadow: inset 0 0 10px rgb(0, 0, 0);
-  background-color: rgb(2, 235, 126);
+.workImg:active{
+  box-shadow: 0 0 30px rgb(7, 233, 82);
+  filter: brightness(90%);
 }
 
-.yoloBtn{
-  margin-right: 15;
-}
+/* MediaQuery */
 
-.yoloBtn:hover{
-  box-shadow:inset 0 0 4px rgb(27, 27, 27), 0 0 19px bisque;
-  
-}
 
-.yoloBtn:active{
-  box-shadow: inset 0 0 10px rgb(0, 0, 0);
-  background-color: rgb(2, 235, 126);
+@media screen and (min-width: 2000px) {
+  .wrapper {
+  float: left;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
 }
+} 
