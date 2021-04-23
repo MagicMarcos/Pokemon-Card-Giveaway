@@ -53,8 +53,8 @@ body{
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   text-align: center;
- 
 }
+
 .yoloWrapper{
   width: 100%;
   display: grid;
@@ -63,20 +63,17 @@ body{
 }
 
 .h1Container{
-  
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   text-align: center;
-
 }
 
 .h2Result{
-     width: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 8fr 1fr;
   text-align: center;
-
 }
 
 .h2Container{
@@ -141,7 +138,6 @@ h2{
      visibility: hidden;
      padding: 9% 0 0 0;
      text-shadow: 5px 1px rgb(51, 51, 53), 0 0 1em rgb(51, 51, 53);
-    
 }
 
 span{
@@ -154,8 +150,7 @@ span{
     height: fit-content;
     padding: 2%;
     text-align: left;
-    padding-left: 0;
-    
+    padding-left: 0;  
 }
 
 span:hover{
@@ -186,7 +181,6 @@ span:hover{
 p{
     font-family: 'Teko' sans-serif;
     font-size: 1.7rem;
-    /* float: left; */
     width: fit-content;
     margin-bottom: 5%;
     padding: 1%;
