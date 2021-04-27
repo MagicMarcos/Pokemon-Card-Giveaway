@@ -46,6 +46,9 @@ html{
 
 body {
   background-color: turquoise;
+  font-family: 'Roboto', sans-serif ;
+  color: rgb(219, 253, 255);
+  
 }
 
 /* Page head */
@@ -78,8 +81,7 @@ h1{
 .center{
   float: left;
   width: 100%;
-  height: fit-content;
-  
+  height: 85rem;
 }
 
 section{
@@ -104,15 +106,13 @@ section{
 }
 
 .workImg {
-  float: left;
+  float:left;
   width: 100%;
-  margin: 0 15% 3% 0%;
   border-radius: 20px;
   box-shadow: 0 0 50px black;
 }
 
 .yolo{
-  margin: 0 2% 0 1%;
   width: 35%;
 }
 
@@ -135,6 +135,67 @@ section{
   filter: brightness(90%);
 }
 
+/* repo Link */
+.repoLink{
+  float: left;
+  text-align: center;
+  width: 100%;
+  font-size: 2rem;
+  padding: 0;
+}
+
+.fa-github-square{
+  font-size: 4rem;
+  margin-bottom: .5%;
+}
+
+
+/* footer */
+
+footer{
+  float: left;
+ font-size: 3rem;
+  padding: 2%;
+  width: 100%;
+  text-align: center;
+}
+
+.devName{
+  width: 100%;
+}
+
+.listContainer{
+ margin-top: 1%;
+  float: left;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1fr 3fr;
+
+}
+
+
+.icons{
+  float: left;
+  text-align: center;
+}
+
+footer li{
+  float: left;
+  padding: 3%;
+  width: 33.3333%;
+}
+
+.fab{
+  text-decoration: none;
+}
+
+.fab:hover{
+  color: blueviolet;
+}
+
+.fab:active{
+  text-shadow: 0 0 10px black;
+}
 /* MediaQuery */
 
 
