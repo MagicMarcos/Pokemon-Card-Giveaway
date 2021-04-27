@@ -1,5 +1,5 @@
 # Pokemon-Card-Giveaway
-An interface for users to roll for a Pokemon card raffle and Channel Point Gambling 
+<p> An interface for users to roll for a Pokemon card raffle and Channel Point Gambling </p>
 App is live at https://pokemon-card-giveaway.herokuapp.com
 
 <h1>How It's Made:</h1>
