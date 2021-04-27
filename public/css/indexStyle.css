@@ -45,7 +45,7 @@ html{
 /*******************************************/
 
 body {
-  background-color: turquoise;
+  background-color: rgb(64, 224, 208);
   font-family: 'Roboto', sans-serif ;
   color: rgb(219, 253, 255);
   
@@ -142,6 +142,8 @@ section{
   width: 100%;
   font-size: 2rem;
   padding: 0;
+  margin-top: 1.5%;
+  margin-bottom: 1%;
 }
 
 .fa-github-square{
@@ -155,13 +157,16 @@ section{
 footer{
   float: left;
  font-size: 3rem;
-  padding: 2%;
+  padding: 1% 2% .5% 2%;
   width: 100%;
   text-align: center;
+  background-color: rgb(132, 235, 224);
 }
 
 .devName{
   width: 100%;
+  color :white;
+  text-shadow: 1px 1px deepskyblue;
 }
 
 .listContainer{
@@ -173,6 +178,20 @@ footer{
 
 }
 
+.personalSite{
+  font-size: 2rem;
+  text-decoration: none;
+  color :white;
+  text-shadow: 1px 1px deepskyblue;
+}
+
+.personalSite:hover{
+  color: rgb(76, 149, 233);
+}
+
+.personalSite:active{
+  font-size: 1.9rem;
+}
 
 .icons{
   float: left;
@@ -187,14 +206,15 @@ footer li{
 
 .fab{
   text-decoration: none;
+  color: deepskyblue;
 }
 
 .fab:hover{
-  color: blueviolet;
+  color: white;
 }
 
 .fab:active{
-  text-shadow: 0 0 10px black;
+  text-shadow: 0 0 10px deepskyblue;
 }
 /* MediaQuery */
 
