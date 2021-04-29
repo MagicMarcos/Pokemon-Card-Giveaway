@@ -3,7 +3,15 @@
 App is live at https://pokemon-card-giveaway.herokuapp.com
 
 <h1>How It's Made:</h1>
-<p>Utilized JavaScript, Node, Express, EJS, CSS(floats and grid), and Mongoose.</p>
+<p>Utilized: </p> 
+    <ul> 
+        <li>JavaScript</li>
+        <li>Node</li>
+        <li>Express</li>
+        <li>EJS</li>
+        <li>CSS(floats and grid)</li>
+        <li>Mongoose</li>
+    </ul>
 <p>The current product utilizes M-V-C based architecture.</p>
 <p>Resulting in a simple CRUD app.</p>
 
